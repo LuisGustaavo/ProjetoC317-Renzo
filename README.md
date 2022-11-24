@@ -95,6 +95,7 @@ npm update
 
 
 ## Autores
- **Alvaro Breno** - Link Github: [Alvaro Breno](https://www.github.com/AlvaroBreno)
- **Arilson Xavier** - Link Github: [Arilson Xavier](https://www.github.com/)
- **Luiz Gustavo** - Link Github: [Luiz Gustavoo](https://www.github.com/LuisGustaavoo)
+
+- **Alvaro Breno** - Link Github: [Alvaro Breno](https://www.github.com/AlvaroBreno)
+- **Arilson Xavier** - Link Github: [Arilson Xavier](https://www.github.com/)
+- **Luiz Gustavo** - Link Github: [Luiz Gustavoo](https://www.github.com/LuisGustaavoo)

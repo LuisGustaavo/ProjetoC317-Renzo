@@ -3,6 +3,7 @@ import * as C from './styles';
 import { useForm, FormActions } from '../../contexts/FormContext';
 import { Theme } from '../../components/Theme';
 import { ChangeEvent, useEffect } from 'react';
+import NavBar from '../../components/NavBar';
 
 
 export const FormStep1 = () => {

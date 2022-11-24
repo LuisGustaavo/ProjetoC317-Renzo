@@ -1,4 +1,4 @@
-export default interface IProdutores {
+export default interface IProdutos {
     id: number
     nome: string
     variedade: string

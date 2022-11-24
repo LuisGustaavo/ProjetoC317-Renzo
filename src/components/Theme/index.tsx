@@ -3,6 +3,7 @@ import * as C from './styles';
 import { Header } from '../Header';
 import { SidebarItem } from '../SidebarItem';
 import { useForm } from '../../contexts/FormContext';
+import NavBar from '../NavBar';
 
 type Props = {
     children: ReactNode;
@@ -13,6 +14,7 @@ export const Theme = ({ children }: Props) => {
 
     return (
         <C.Container>
+            <NavBar/>
             <C.Area>
                 <Header />
 
@@ -20,7 +22,7 @@ export const Theme = ({ children }: Props) => {
                     <C.Sidebar>
 
                         <SidebarItem
-                            title="Pessoal"
+                            title="Produtor"
                             description="Identificação"
                             icon="profile"
                             path='/'

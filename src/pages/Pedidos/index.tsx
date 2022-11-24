@@ -4,21 +4,22 @@ import { useState, useEffect } from "react"
 import http from "../../http"
 
 import { Link as RouterLink } from 'react-router-dom'
+import IPedidos from "../../interface/IPedidos"
 
-const AdministracaoProdutores = () => {
+const AdministracaoPedidos = () => {
 
-    const [produtores, setProdutores] = useState<IProdutores[]>([])
+    const [pedidos, setPedidos] = useState<IPedidos[]>([])
 
     useEffect(() => {
-        http.get<IProdutores[]>('produtor/')
-            .then(resposta => setProdutores(resposta.data))
+        http.get<IPedidos[]>('pedido/')
+            .then(resposta => setPedidos(resposta.data))
     }, [])
 
-    const excluir = (produtorAhSerExcluido: IProdutores) => {
+    const excluir = (produtorAhSerExcluido: IPedidos) => {
         http.delete(`produtor/${produtorAhSerExcluido.id}/`)
             .then(() => {
-                const listaProdutor = produtores.filter(produtor => produtor.id !== produtorAhSerExcluido.id)
-                setProdutores([...listaProdutor])
+                const listaProdutor = pedidos.filter(pedidos => pedidos.id !== produtorAhSerExcluido.id)
+                setPedidos([...listaProdutor])
             })
     }
 
@@ -37,36 +38,48 @@ const AdministracaoProdutores = () => {
                     <TableHead>
                         <TableRow>
                             <TableCell>
-                                Nome
+                                Produtor
                             </TableCell>
                             <TableCell>
-                                Endereço
+                                Produto
                             </TableCell>
                             <TableCell>
-                                CPF
+                                Quantidade
                             </TableCell>
                             <TableCell>
-                                Telefone
+                                Valor
+                            </TableCell>
+                            <TableCell>
+                                Total
+                            </TableCell>
+                            <TableCell>
+                                Data
                             </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {produtores.map(produtor =>
-                            <TableRow key={produtor.id}>
+                        {pedidos.map(pedido =>
+                            <TableRow key={pedido.id}>
                                 <TableCell>
-                                    {produtor.nome}
+                                    {pedido.produtor}
                                 </TableCell>
                                 <TableCell>
-                                    {produtor.endereco}
+                                    {pedido.produto}
                                 </TableCell>
                                 <TableCell>
-                                    {produtor.cpf}
+                                    {pedido.quantidade}
                                 </TableCell>
                                 <TableCell>
-                                    {produtor.telefone}
+                                    {pedido.valor}
                                 </TableCell>
                                 <TableCell>
-                                    <Button variant="outlined" color="error" onClick={() => excluir(produtor)}>
+                                {pedido.valor*pedido.quantidade}
+                                </TableCell>
+                                <TableCell>
+                                    {pedido.data.slice(8,10)+'/'+pedido.data.slice(5,7)+'/'+pedido.data.slice(0,4)}
+                                </TableCell>
+                                <TableCell>
+                                    <Button variant="outlined" color="error" onClick={() => excluir(pedido)}>
                                         Excluir
                                     </Button>
                                 </TableCell>
@@ -78,4 +91,4 @@ const AdministracaoProdutores = () => {
     )
 }
 
-export default AdministracaoProdutores
+export default AdministracaoPedidos
